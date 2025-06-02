@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -86,7 +85,7 @@ export default function Home() {
       >
         <h2 className="text-3xl font-semibold">About Me</h2>
         <p className="mt-4 max-w-2xl text-center">
-          I'm a Master's student in Electrical and Computer Engineering focused on robotics, embedded systems, and AI. 
+          I&apos;m a Master&apos;s student in Electrical and Computer Engineering focused on robotics, embedded systems, and AI. 
           I love building real-world tech that blends hardware and software.
         </p>
       </motion.section>
