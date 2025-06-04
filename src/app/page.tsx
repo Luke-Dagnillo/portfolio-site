@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { FaPython, FaReact, FaGithub, FaMicrochip } from 'react-icons/fa';
+import { FaPython, FaLinkedin, FaGithub, FaMicrochip } from 'react-icons/fa';
 import { SiTensorflow, SiCplusplus } from 'react-icons/si';
 import SkillBar from '@/app/components/SkillBar';
 import ProjectShowcase from '@/app/components/ProjectShowcase';
@@ -21,6 +21,20 @@ export default function Home() {
     { label: "Projects", href: "#projects" },
     { label: "Resume", href: "#resume" },
   ];
+
+  const [showResume, setShowResume] = useState(false);
+  const resumeRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = resumeRef.current;
+    if (!dialog) return;
+
+    if (showResume && !dialog.open) {
+      dialog.showModal();
+    } else if (!showResume && dialog.open) {
+      dialog.close();
+    }
+  }, [showResume]);
 
   return (
     <main className="scroll-smooth">
@@ -247,23 +261,66 @@ export default function Home() {
       </motion.section>
 
       <motion.section
-        id="resume"
-        className="min-h-screen flex flex-col justify-center items-center bg-gray-100 px-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+      id="resume"
+      className="min-h-[60vh] bg-gray-100 px-6 py-20 flex flex-col items-center justify-center text-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl font-semibold text-gray-900 mb-6">Resume</h2>
+
+      <p className="text-gray-700 max-w-xl mb-4">
+        Click below to preview my resume in-browser, or download it as a PDF.
+      </p>
+
+      {/* Resume Modal Button */}
+      <button
+        onClick={() => setShowResume(true)}
+        className="mb-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
       >
-        <h2 className="text-3xl font-semibold text-gray-900">Resume</h2>
-        <a 
-          href="/Luciano_Dagnillo_Resume.pdf" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          View My Resume
+        View Resume
+      </button>
+
+      {/* Download Link */}
+      <a
+        href="/Luciano_Dagnillo_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mb-6 text-blue-600 hover:underline"
+      >
+        Download Resume
+      </a>
+
+      {/* Social Icons */}
+      <div className="flex gap-6 text-3xl text-blue-700 mt-6">
+        <a href="https://www.linkedin.com/in/luciano-dagnillo-0a910a306/" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin className="hover:text-blue-800 transition" />
         </a>
-      </motion.section>
+        <a href="https://github.com/Luke-Dagnillo" target="_blank" rel="noopener noreferrer">
+          <FaGithub className="hover:text-gray-800 transition" />
+        </a>
+      </div>
+
+      {/* Modal View */}
+      <dialog
+        ref={resumeRef}
+        className="backdrop:bg-black/50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-4xl w-full rounded-lg p-0"
+        onClose={() => setShowResume(false)}
+        open={showResume}
+      >
+        <div className="flex justify-between items-center p-4 border-b bg-gray-100">
+          <span className="font-semibold">Luciano Dagnillo – Resume</span>
+          <button onClick={() => setShowResume(false)} className="text-sm text-gray-600 hover:text-black">
+            Close ✕
+          </button>
+        </div>
+        <iframe
+          src="/papers/DAGNILLO_LUKE_resume.pdf"
+          className="w-full h-[75vh]"
+        ></iframe>
+      </dialog>
+    </motion.section>
     </main>
   );
 }
