@@ -6,6 +6,8 @@ import { Typewriter } from 'react-simple-typewriter';
 import { FaPython, FaReact, FaGithub, FaMicrochip } from 'react-icons/fa';
 import { SiTensorflow, SiCplusplus } from 'react-icons/si';
 import SkillBar from '@/app/components/SkillBar';
+import ProjectShowcase from '@/app/components/ProjectShowcase';
+import PaperCard from '@/app/components/PaperCard';
 
 
 
@@ -185,12 +187,63 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-semibold">Projects</h2>
-        <ul className="mt-6 space-y-4">
-          <li>🎵 Music Visualizer with LED Matrix</li>
-          <li>🧠 AI Face Tracking with TensorFlow</li>
-          <li>☀️ Solar Drone for Remote Sensing</li>
-        </ul>
+        <div className="mt-6 w-full max-w-5xl">
+          <h3 className="text-2xl font-medium mb-8 text-center">Featured Builds</h3>
+
+          <ProjectShowcase
+            title="Music Visualizer with LED Matrix"
+            description="This project converts real-time audio into colorful animations on a 10×10 WS2812B LED matrix. Built using an ESP32 microcontroller, the system captures microphone input and performs FFT-based frequency analysis to generate dynamic bar and wave visualizations. The visualizer runs on memory-constrained hardware and showcases embedded audio processing, precision timing, and multichannel LED control using the FastLED library. Future upgrades include Bluetooth/Wi-Fi app control and beat-synchronized pattern modulation, making it a great showcase of both low-level optimization and user-facing interactivity."
+            video="/videos/led-vid.MOV"
+            tags={['ESP32', 'WS2812B', 'Arduino', 'C++']}
+            github="https://github.com/Luke-Dagnillo/LED_Matrix_Thingy"
+          />
+
+          <ProjectShowcase
+            title="Perio-Dx Mobile App"
+            description="Perio-Dx is a proof-of-concept mobile health app developed in collaboration with biomedical engineering students for a senior design project. The app allows users to input data from antigen-based saliva diagnostics to assess potential risks of kidney or heart disease. Built with Python’s Kivy framework and Firebase for real-time backend integration, Perio-Dx features data logging, graphical feedback, and cross-platform support. While not a production medical tool, it demonstrates rapid prototyping of clinical diagnostics, mobile GUI development, and backend integration for health tech."
+            video="/videos/app-vid.MP4"
+            tags={['Python', 'Kivy', 'Firebase', 'Mobile']}
+            github="https://github.com/Luke-Dagnillo/Perio-dx-App"
+            reverse
+          />
+
+          <ProjectShowcase
+            title="Analog Audio Amplifier Circuit"
+            description="Designed for a circuits course, this project involved building an analog amplifier using op-amps and discrete transistors to boost audio signals without distortion. The amplifier was simulated in SPICE to analyze frequency response and gain characteristics, then physically constructed and validated using a waveform generator and oscilloscope. It taught practical tradeoffs in signal integrity, component tolerance, and analog layout, offering hands-on experience with lab instrumentation and classic audio engineering principles."
+            video="/videos/speaker-vid.MOV"
+            tags={['Analog', 'SPICE', 'Circuit Design', 'Amplifier']}
+          />
+
+          <ProjectShowcase
+            title="Solar Drone for Remote Sensing"
+            description="This project involved retrofitting an old RC quadcopter with a solar charging solution to extend flight endurance in sunlight. After losing the original charger, the drone was repurposed with lightweight solar panels and onboard power management to trickle-charge its battery, serving as a testbed for off-grid UAV concepts. While the system remains RC-controlled, the project highlights creative problem-solving, renewable energy integration, and system-level engineering. It’s a strong example of sustainability-focused innovation applied to embedded systems."
+            video="/videos/drone-vid.MOV"
+            tags={['Drone', 'Sensors', 'Solar', 'Embedded']}
+            reverse
+          />
+        </div>
+
+        {/* 📄 Research & Technical Writing */}
+        <div className="mt-12 w-full max-w-4xl">
+          <h3 className="text-2xl font-medium mb-4">Research & Technical Writing</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <PaperCard
+              title="Challenges and Opportunities with Gate-All-Around Transistors"
+              summary="Explores fabrication and reliability challenges of GAAFETs versus FinFETs and proposes material and design strategies for sub-3nm logic."
+              file="/papers/Challenges_and_Opportunities_with_Gate_All_Around_Transistors.pdf"
+            />
+            <PaperCard
+              title="Survey of Contamination in Language Model Benchmarks"
+              summary="Investigates benchmark contamination in LLMs via TS-Guessing and Local Order Quiz, revealing memorization in high school math tasks."
+              file="/papers/Machine_Learning_Project_2.pdf"
+            />
+            <PaperCard
+              title="Analysis of Cache Compression via Clustering"
+              summary="Implements Base-Delta-Immediate compression in ZSim and evaluates its impact on memory efficiency and runtime in simulated workloads."
+              file="/papers/562FinalReport.pdf"
+            />
+          </div>
+        </div>
       </motion.section>
 
       <motion.section
