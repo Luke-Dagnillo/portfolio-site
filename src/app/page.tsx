@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Typewriter } from 'react-simple-typewriter';
+
 
 export default function Home() {
 
@@ -19,12 +21,12 @@ export default function Home() {
         {/* Navbar */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
           <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 className="font-bold text-xl">Luciano Dagnillo</h1>
+            <h1 className="font-bold text-xl text-blue-900">Luciano Dagnillo</h1>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-8">
               {scrollLinks.map(({ label, href }) => (
-                <a key={label} href={href} className="text-gray-700 hover:text-black">
+                <a key={label} href={href} className="text-black hover:text-blue-600">
                   {label}
                 </a>
               ))}
@@ -65,14 +67,43 @@ export default function Home() {
       {/* Sections */}
       <motion.section
         id="home"
-        className="min-h-screen flex flex-col items-center justify-center pt-20"
+        className="min-h-screen flex flex-col items-center justify-center pt-20 text-center px-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-5xl font-bold">Luciano Dagnillo</h1>
-        <p className="mt-4 text-lg">MS Student | Electrical and Computer Engineering</p>
+        <img 
+          src="/profile.jpg" 
+          alt="Luciano Dagnillo" 
+          className="w-60 h-60 rounded-full mt-6 shadow-md"
+        />
+
+        <h1 className="text-5xl font-bold mt-6">Luciano Dagnillo</h1>
+
+        <p className="mt-4 text-xl text-white-700 max-w-xl">
+          <Typewriter
+            words={[
+              'MS ECE Student',
+              'Passionate about intelligent systems',
+              'Bridging software and hardware',
+              'Always building something new...'
+            ]}
+            loop={Infinity}
+            cursor
+            cursorStyle="_"
+            typeSpeed={60}
+            deleteSpeed={40}
+            delaySpeed={1500}
+          />
+        </p>
+
+        <a
+          href="#projects"
+          className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
+        >
+          View Projects
+        </a>
       </motion.section>
 
       <motion.section
@@ -83,8 +114,8 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-semibold">About Me</h2>
-        <p className="mt-4 max-w-2xl text-center">
+        <h2 className="text-3xl font-semibold text-gray-900">About Me</h2>
+        <p className="mt-4 max-w-2xl text-center text-gray-900">
           I&apos;m a Master&apos;s student in Electrical and Computer Engineering focused on robotics, embedded systems, and AI. 
           I love building real-world tech that blends hardware and software.
         </p>
@@ -114,7 +145,7 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-semibold">Resume</h2>
+        <h2 className="text-3xl font-semibold text-gray-900">Resume</h2>
         <a 
           href="/Luciano_Dagnillo_Resume.pdf" 
           target="_blank" 
