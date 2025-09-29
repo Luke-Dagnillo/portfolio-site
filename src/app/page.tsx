@@ -169,8 +169,9 @@ export default function Home() {
 
             {/* Skill Bars */}
             <div className="space-y-3">
-              <SkillBar label="Python" width="79%" />
-              <SkillBar label="C/C++" width="74%" />
+              <SkillBar label="Altium" width="73%" />
+              <SkillBar label="Python" width="74%" />
+              <SkillBar label="C/C++" width="71%" />
               <SkillBar label="Embedded Systems" width="76%" />
               <SkillBar label="TensorFlow" width="69%" />
               <SkillBar label="Electrical Testing" width="86%" />
