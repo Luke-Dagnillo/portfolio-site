@@ -206,6 +206,14 @@ export default function Home() {
           <h3 className="text-2xl font-medium mb-8 text-center">Featured Builds</h3>
 
           <ProjectShowcase
+            title="Twinkling Star PCB"
+            description="(video to come when PCB arrives and I finish soldering) I used three independent RC networks (100 µF + 22 kΩ) driving BJT current sinks to stagger LED branch currents on power-up. This creates a soft-start/“twinkle” effect without any microcontroller—only passives and BJTs. The star-shaped outline doubles as a mechanical constraint and routing guide: LED return paths run along the inner star edges to keep the front clean and trace lengths balanced."
+            video="/images/Christmas Star PCB.png"  /* swap to an actual clip or use an image prop if supported */
+            tags={['PCB', 'Analog', 'BJTs', 'RC', 'LEDs']}
+            reverse
+          />
+
+          <ProjectShowcase
             title="Music Visualizer with LED Matrix"
             description="This project converts real-time audio into colorful animations on a 10×10 WS2812B LED matrix. Built using an ESP32 microcontroller, the system captures microphone input and performs FFT-based frequency analysis to generate dynamic bar and wave visualizations. The visualizer runs on memory-constrained hardware and showcases embedded audio processing, precision timing, and multichannel LED control using the FastLED library. Future upgrades include Bluetooth/Wi-Fi app control and beat-synchronized pattern modulation, making it a great showcase of both low-level optimization and user-facing interactivity."
             video="/videos/led-vid.MOV"
@@ -230,11 +238,19 @@ export default function Home() {
           />
 
           <ProjectShowcase
+            title="Battery-Powered Laser Turret (PC + Arduino Control)"
+            description="A battery-powered, two-axis laser turret driven by a pan-tilt servo pair and controlled from a computer over USB serial. Commands stream to an Arduino that enforces slew-rate limits and an exponential moving average for smooth motion. The electronics live on a small perfboard (power switch, regulator, decoupling) with a separate servo supply and common ground for stability. Supports mouse/keyboard control and auto-scan patterns; designed with safety in mind (interlock and no-go zones). Future upgrade: Bluetooth + OpenCV tracking."
+            video="/videos/laser-robot-vid.MOV" 
+            tags={['Arduino', 'Servos', 'Embedded', 'Python', 'Serial']}
+            reverse
+          />
+
+          <ProjectShowcase
             title="Solar Drone for Remote Sensing"
             description="This project involved retrofitting an old RC quadcopter with a solar charging solution to extend flight endurance in sunlight. After losing the original charger, the drone was repurposed with lightweight solar panels and onboard power management to trickle-charge its battery, serving as a testbed for off-grid UAV concepts. While the system remains RC-controlled, the project highlights creative problem-solving, renewable energy integration, and system-level engineering. It’s a strong example of sustainability-focused innovation applied to embedded systems."
             video="/videos/drone-vid.MOV"
             tags={['Drone', 'Sensors', 'Solar', 'Embedded']}
-            reverse
+            
           />
         </div>
 
