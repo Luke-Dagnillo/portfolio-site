@@ -53,8 +53,7 @@ export default function ProjectShowcase({
 
       <div className="w-full md:w-1/2">
         <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-        {/* tiny fix: Tailwind uses gray-700, not black-700 */}
-        <p className="text-gray-700 mb-4">{description}</p>
+        <p className="text-black-700 mb-4">{description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag) => (
