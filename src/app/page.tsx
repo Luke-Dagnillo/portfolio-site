@@ -208,9 +208,9 @@ export default function Home() {
           <ProjectShowcase
             title="Twinkling Star PCB"
             description="(video to come when PCB arrives and I finish soldering) I used three independent RC networks (100 µF + 22 kΩ) driving BJT current sinks to stagger LED branch currents on power-up. This creates a soft-start/“twinkle” effect without any microcontroller—only passives and BJTs. The star-shaped outline doubles as a mechanical constraint and routing guide: LED return paths run along the inner star edges to keep the front clean and trace lengths balanced."
-            image="/images/Christmas Star PCB.png" /* swap to an actual clip or use an image prop if supported */
+            image="/images/Christmas-Star-Vid.MOV" 
             imageAlt="Star-shaped PCB with twinkling LED layout" 
-            tags={['PCB', 'Analog', 'BJTs', 'RC', 'LEDs']}
+            tags={['PCB', 'Analog', 'BJTs', 'RC', 'Soldering']}
             reverse
           />
 
@@ -235,7 +235,7 @@ export default function Home() {
             title="Analog Audio Amplifier Circuit"
             description="Designed for a circuits course, this project involved building an analog amplifier using op-amps and discrete transistors to boost audio signals without distortion. The amplifier was simulated in SPICE to analyze frequency response and gain characteristics, then physically constructed and validated using a waveform generator and oscilloscope. It taught practical tradeoffs in signal integrity, component tolerance, and analog layout, offering hands-on experience with lab instrumentation and classic audio engineering principles."
             video="/videos/speaker-vid.MOV"
-            tags={['Analog', 'SPICE', 'Circuit Design', 'Amplifier']}
+            tags={['Analog', 'SPICE', 'Circuit Design', 'Amplifier', 'Soldering']}
           />
 
           <ProjectShowcase
@@ -251,7 +251,6 @@ export default function Home() {
             description="This project involved retrofitting an old RC quadcopter with a solar charging solution to extend flight endurance in sunlight. After losing the original charger, the drone was repurposed with lightweight solar panels and onboard power management to trickle-charge its battery, serving as a testbed for off-grid UAV concepts. While the system remains RC-controlled, the project highlights creative problem-solving, renewable energy integration, and system-level engineering. It’s a strong example of sustainability-focused innovation applied to embedded systems."
             video="/videos/drone-vid.MOV"
             tags={['Drone', 'Sensors', 'Solar', 'Embedded']}
-            
           />
         </div>
 
@@ -273,6 +272,11 @@ export default function Home() {
               title="Analysis of Cache Compression via Clustering"
               summary="Implements Base-Delta-Immediate compression in ZSim and evaluates its impact on memory efficiency and runtime in simulated workloads."
               file="/papers/562FinalReport.pdf"
+            />
+            <PaperCard
+              title="Survey of Silicon Modulators"
+              summary="Surveys silicon electro-optic modulators on SOI: role in high-bandwidth, low-energy links; key metrics (bandwidth, insertion loss, fJ/bit); CMOS-compatible fabrication; cost ranges; vendors; and challenges (thermo-optic drift, crosstalk, scaling)."
+              file="/papers/Silicon_Modulators.pdf"
             />
           </div>
         </div>
