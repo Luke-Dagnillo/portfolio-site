@@ -208,8 +208,7 @@ export default function Home() {
           <ProjectShowcase
             title="Twinkling Star PCB"
             description="I used three independent RC networks (100 µF + 22 kΩ) driving BJT current sinks to stagger LED branch currents on power-up. This creates a soft-start/“twinkle” effect without any microcontroller—only passives and BJTs. The star-shaped outline doubles as a mechanical constraint and routing guide: LED return paths run along the inner star edges to keep the front clean and trace lengths balanced."
-            image="/videos/Christmas-Star-Vid.mov" 
-            imageAlt="Star-shaped PCB with twinkling LED layout" 
+            video="/videos/Christmas-Star-Vid.mov" 
             tags={['PCB', 'Analog', 'BJTs', 'RC', 'Soldering']}
             reverse
           />
